@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="icon" href="./images/robot2.png">
+    <script src="./js/script.js" defer ></script>
+    <title>EduAsistant</title>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a onclick="closeSidebar()" class="sidebar-btn sidebar-btn-sidebar" href="#"><i class="fa-solid fa-bars"></i></a>
+            </div>
+            <div class="history-section">
+                <div class="history-header">Yesterday</div>
+                <ol class="chat-history">
+                     <li>CV2 moduli o'rnatish</li>
+                    <li>JS bilan h3 stilini o'zgartirish</li>
+                    <li>Railway bulutli platformasi</li>
+                    <li>Massivni xaritalash funksiyasi</li>
+                    <li>Array transformation tushuntir</li>
+                    <li>DOM haqida ma'lumot</li>
+                </ol>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <a onclick="openSidebar()" class="sidebar-btn sidebar-btn-main" href="#"><i class="fa-solid fa-bars"></i></a>
+                <a class="llm-model" href="#">EduAsistant <i class="fa-solid fa-angle-down"></i></a>
+            </div>
+            <div class="chat-container">
+                <h1 class="title">Sizda qanday savol bor ?</h1>
+                <form action="" class="input-container">
+                    <textarea name="" id="" placeholder="Savolingizni yozing"></textarea>
+                    <div class="input-bottom-buttons">
+                        <a class="send-btn" href="#"><i class="fa-solid fa-arrow-up"></i></a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

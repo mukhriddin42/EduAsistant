@@ -25,6 +25,7 @@
     /* border: 1px solid green; */
 }
 
+
 .sidebar-btn {
     padding: 10px 14px;
     margin-left: 10px;
@@ -40,6 +41,10 @@
 
 .sidebar-btn:hover {
     background-color: #464646;
+}
+
+.sidebar-header:last-child {
+    color: red;
 }
 
 .history-section {
@@ -76,9 +81,13 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:center;
     position: relative;
+    /* border: 1px solid green; */
 }
+
+
+/* Main qismini yuqori qsimi tipa headerchasi*/
 
 .top-bar {
     /* border: 1px solid red; */
@@ -91,15 +100,25 @@
     align-items: center;
 }
 
+
+
+/* Yangi savol yozish qismi  */
+
 .chat-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
 .chat-container .title {
+    text-align: center;
+    width: 600px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 600;
     padding: 20px;
@@ -113,10 +132,10 @@
 .input-container textarea {
     background-color: #303030;
     border: none;
-    width: 600px;
-    height: 90px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    width: 700px;
+    height: 80px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
     color: #fff;
     padding: 15px;
     line-height: 25px;
@@ -127,13 +146,13 @@
 }
 
 .input-bottom-buttons {
-    height: 50px;
+    height: 40px;
     display: flex;
     justify-content: right;
     align-items: center;
     background-color: #303030;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 .send-btn {
@@ -144,12 +163,71 @@
     border-radius: 50%;
     transition: .15s linear;
     margin-right: 15px;
-    margin-bottom: 3px;
+    margin-bottom: 10px;
 }
 
 .send-btn:hover {
     background-color:#a4a4a4;
 }
+
+
+/* Main chatlashish qismi  */
+
+.chatting-section {
+    /* border: 1px solid yellow; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    height: 100vh;
+}
+
+.main-chatting-section {
+    margin-top: 60px;
+    width: 700px;
+    height: 485px;
+    /* border: 1px solid red; */
+    overflow-y: auto;
+    display: none;
+}
+
+.main-chatting-section::-webkit-scrollbar {
+    width: 6px;
+}
+
+.main-chatting-section::-webkit-scrollbar-track {
+    background-color:#212121;
+}
+
+.main-chatting-section::-webkit-scrollbar-thumb {
+    background-color: #a4a4a4;
+    border-radius: 5px;
+}
+
+.question {
+    background-color:#464646;
+    max-width: 550px;
+    width:max-content;
+    padding: 10px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    border-radius: 15px 15px 0px 15px;
+    font-size: 15px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.answer {
+    background-color: lightsteelblue;
+    max-width: 690px;
+    width:max-content;
+    padding: 10px;
+    margin-bottom: 15px;
+    /* border-radius: 15px 15px 15px 0px; */
+}
+
+
+/* Main chatlashish qismi tugashi */
+
 
 .llm-model {
     text-decoration: none;

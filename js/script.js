@@ -24,14 +24,14 @@ let textarea = document.getElementById("userQuestion");
 let mainChattingSection = document.querySelector(".main-chatting-section");
 let sendBtn = document.getElementById("send-btn");
 
-function toSlipScroll() {
+// function toSkipScroll() {
     
-    window.scrollTo({
-        top:0,
-        behavior: "smooth"
-    });
+//     window.scrollTo({
+//         top: 0,
+//         behavior: "smooth"
+//     });
     
-}
+// }
 
 function thinkingAnimate(){
     let thinkingAnim = document.createElement("div");
@@ -46,7 +46,7 @@ function thinkingAnimate(){
 
     setTimeout(() => {
         thinkingAnim.style.display = "none"
-    }, 1500);
+    }, 1000);
 }
 
 function reportAnswer(){
@@ -66,15 +66,11 @@ function reportAnswer(){
         if (i < text.length) {
             answerMessage.textContent = text.substring(0, i+1);
             i++;
-            setTimeout(type, 10)
+            setTimeout(type, 0)
         }
     }
-    type();
-    // answerMessage.textContent = text;
-
-
-    
-    
+    // type();
+    answerMessage.textContent = text;
 
     mainChattingSection.scrollTop = mainChattingSection.scrollHeight
 }
@@ -90,6 +86,7 @@ function sendQuestion() {
     let question = document.createElement("div");
     question.id = "question";
     question.className = "question";
+
 
     let message = document.createElement("p");
     message.textContent = textarea.value;
@@ -107,7 +104,7 @@ function sendQuestion() {
         reportAnswer();
     }, 2000);
     
-    mainChattingSection.scrollTop = mainChattingSection.scrollHeight;
+    mainChattingSection.scrollTop = -300;
 }
 
 textarea.addEventListener("keypress", function(event) {

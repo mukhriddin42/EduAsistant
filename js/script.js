@@ -1,6 +1,5 @@
 let leftSidebarBtn = document.querySelector(".sidebar-btn-sidebar");
 
-console.log(leftSidebarBtn);
 
 function closeSidebar() {
     document.querySelector(".sidebar").style.display = "none";
@@ -15,13 +14,76 @@ function openSidebar() {
 }
 
 
+
+
+
+
+let title = document.querySelector(".title");
+let chatContainer = document.querySelector(".chat-container");
 let textarea = document.getElementById("userQuestion");
-console.log(textarea.ariaValueNow);
 let mainChattingSection = document.querySelector(".main-chatting-section");
+let sendBtn = document.getElementById("send-btn");
+
+function toSlipScroll() {
+    
+    window.scrollTo({
+        top:0,
+        behavior: "smooth"
+    });
+    
+}
+
+function thinkingAnimate(){
+    let thinkingAnim = document.createElement("div");
+    thinkingAnim.id = "thinkingAnim";
+    thinkingAnim.className = "loader";
+
+    let thinkingMessage = document.createElement("p")
+    // thinkingMessage.textContent = "O'ylayapman";
+
+    thinkingAnim.appendChild(thinkingMessage);
+    mainChattingSection.appendChild(thinkingAnim);
+
+    setTimeout(() => {
+        thinkingAnim.style.display = "none"
+    }, 1500);
+}
+
+function reportAnswer(){
+    let answer = document.createElement("div");
+    answer.id = "answer";
+    answer.className = "answer";
+
+    mainChattingSection.appendChild(answer);
+
+    let answerMessage = document.createElement("p")
+    answer.appendChild(answerMessage);
+
+    const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Proin accumsan, arcu ac vehicula consectetur, libero nulla suscipit sapien, non gravida elit nulla a est. Curabitur id velit at lectus dictum consequat. Aenean tincidunt, lacus at suscipit feugiat, arcu magna tempus augue, a dictum justo ligula nec metus. Vestibulum interdum ex ut justo aliquet, eget sagittis metus sagittis. Integer volutpat, sapien at pharetra molestie, lectus ligula fermentum augue, ut vestibulum arcu lectus id velit. Duis convallis purus vel dolor hendrerit, et elementum urna porttitor. Sed venenatis erat nec libero pellentesque, nec interdum justo auctor. Aenean dignissim, arcu nec facilisis pharetra, orci mauris eleifend turpis, sit amet euismod magna ex et lectus."
+
+    let i = 0;
+    function type() {
+        if (i < text.length) {
+            answerMessage.textContent = text.substring(0, i+1);
+            i++;
+            setTimeout(type, 10)
+        }
+    }
+    type();
+    // answerMessage.textContent = text;
+
+
+    
+    
+
+    mainChattingSection.scrollTop = mainChattingSection.scrollHeight
+}
 
 function sendQuestion() {
-    document.querySelector(".title").style.display = "none";
-    document.querySelector(".chat-container").style.top = "87%";
+
+    if (textarea.value.trim() === "") return;
+    title.style.display = "none";
+    chatContainer.style.top = "87%";
 
     mainChattingSection.style.display = "inline-block";
 
@@ -38,8 +100,15 @@ function sendQuestion() {
     mainChattingSection.appendChild(question);
 
     question.style.marginLeft = `${690 - question.clientWidth}px`;
-}
 
+    thinkingAnimate()
+
+    setTimeout(() => {
+        reportAnswer();
+    }, 2000);
+    
+    mainChattingSection.scrollTop = mainChattingSection.scrollHeight;
+}
 
 textarea.addEventListener("keypress", function(event) {
     if(event.key === "Enter" && !event.shiftKey) {

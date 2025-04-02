@@ -66,10 +66,10 @@ function reportAnswer(){
         if (i < text.length) {
             answerMessage.textContent = text.substring(0, i+1);
             i++;
-            setTimeout(type, 0)
+            setTimeout(type, 1)
         }
     }
-    // type();
+    type();
     answerMessage.textContent = text;
 
     mainChattingSection.scrollTop = mainChattingSection.scrollHeight
